@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <include file="001_create_sequence_citizenship_id_seq.xml" relativeToChangelogFile="true"/>
+    <include file="002_create_table_citizenship.xml" relativeToChangelogFile="true"/>
+    <include file="003_create_sequence_country_id_seq.xml" relativeToChangelogFile="true"/>
+    <include file="004_create_table_country.xml" relativeToChangelogFile="true"/>
+    <include file="005_create_sequence_city_id_seq.xml" relativeToChangelogFile="true"/>
+    <include file="006_create_table_city.xml" relativeToChangelogFile="true"/>
+    <include file="007_create_sequence_hospital_id_seq.xml" relativeToChangelogFile="true"/>
+    <include file="008_create_table_hospital.xml" relativeToChangelogFile="true"/>
+    <include file="009_create_sequence_organization_id_seq.xml" relativeToChangelogFile="true"/>
+    <include file="010_create_table_organization.xml" relativeToChangelogFile="true"/>
+    <include file="011_create_sequence_position_id.xml" relativeToChangelogFile="true"/>
+    <include file="012_create_table_position.xml" relativeToChangelogFile="true"/>
+    <include file="013_create_sequence_registry_id.xml" relativeToChangelogFile="true"/>
+    <include file="014_create_table_registry.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

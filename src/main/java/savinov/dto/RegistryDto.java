@@ -1,0 +1,123 @@
+package savinov.dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import savinov.entities.Registry;
+
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor(staticName = "of")
+public class RegistryDto {
+
+    @JsonProperty("Идентификатор")
+    protected Integer id;
+
+    @JsonProperty("НаименованиеОрганизацииId")
+    private Integer organization;
+
+    @JsonIgnore
+    private String fcs;
+
+    @JsonProperty("ФИОРаботника")
+    private String shortFcs;
+
+    @JsonProperty("ДолжностьId")
+    private Integer position;
+
+    @JsonProperty("ГражданствоId")
+    private Integer citizenship;
+
+    @JsonProperty("ГодРождения")
+    private String birthYear;
+
+    @JsonProperty("Путь")
+    private String path;
+
+    @JsonProperty("ГородId")
+    private Integer city;
+
+    @JsonProperty("МестоПрохожденияЛеченияValue")
+    private String treatmentPlace;
+
+    @JsonProperty("НаименованиеСтационараId")
+    private Integer hospital;
+
+    @JsonProperty("СтепеньТяжестиЗаболеванияValue")
+    private String patientStatus;
+
+    @JsonProperty("КоличествоКонтактировавших")
+    private Integer contactedNumber;
+
+    @JsonProperty("СтранаId")
+    private Integer country;
+
+    @JsonProperty("СтатусУчётаValue")
+    private String status;
+
+    @JsonProperty("ДатаПостановкиНаУчёт")
+    private String registerDate;
+
+    @JsonProperty("ДатаСнятияСУчёта")
+    private String unregisterDate;
+
+    @JsonProperty("ДатаПолученияПоложительногоТеста")
+    private String firstTestDate;
+
+    @JsonProperty("ДатаСмерти")
+    private String deathDate;
+
+    @JsonProperty("Комментарий")
+    private String comment;
+
+    @JsonProperty("ПовторноеЗаболеваниеValue")
+    private String diseaseNumber;
+
+    @JsonProperty("ВакцинированПолностьюValue")
+    private String isFullyVaccinated;
+
+    @JsonProperty("ДатаВакцинированияПолностью")
+    private String fullyVaccinatedDate;
+
+    @JsonProperty("ВакцинированПервымКомпонентомValue")
+    private String isFirstComponentVaccinated;
+
+    @JsonProperty("ДатаВакцинированияПервымКомпонентом")
+    private String firstVaccineDate;
+
+    public static RegistryDto of(Registry registry) {
+        return RegistryDto.builder()
+                .id(registry.getId())
+                .organization(registry.getOrganization())
+                .fcs(registry.getFcs())
+                .shortFcs(registry.getShortFcs())
+                .position(registry.getPosition())
+                .citizenship(registry.getCitizenship())
+                .birthYear(registry.getBirthYear())
+                .path(registry.getPath())
+                .city(registry.getCity())
+                .treatmentPlace(registry.getTreatmentPlace())
+                .hospital(registry.getHospital())
+                .patientStatus(registry.getPatientStatus())
+                .contactedNumber(registry.getContactedNumber())
+                .country(registry.getCountry())
+                .status(registry.getStatus())
+                .registerDate(registry.getRegisterDate())
+                .unregisterDate(registry.getUnregisterDate())
+                .firstTestDate(registry.getFirstTestDate())
+                .deathDate(registry.getDeathDate())
+                .comment(registry.getComment())
+                .diseaseNumber(registry.getDiseaseNumber())
+                .isFullyVaccinated(registry.getIsFullyVaccinated())
+                .fullyVaccinatedDate(registry.getFullyVaccinatedDate())
+                .isFirstComponentVaccinated(registry.getIsFirstComponentVaccinated())
+                .firstVaccineDate(registry.getFirstVaccineDate())
+                .build();
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="create table position" author="savinov_vu">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="position"/>
+            </not>
+        </preConditions>
+        <sql>
+            CREATE TABLE IF NOT EXISTS position (
+            id integer NOT NULL DEFAULT nextval('position_id_seq'),
+            name VARCHAR (255) NOT NULL,
+            CONSTRAINT position_pkey PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

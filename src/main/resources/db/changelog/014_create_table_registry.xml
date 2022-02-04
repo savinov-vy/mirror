@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="create table registry" author="savinov_vu">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="registry"/>
+            </not>
+        </preConditions>
+        <sql>
+            CREATE TABLE IF NOT EXISTS registry (
+                id integer NOT NULL DEFAULT nextval('registry_id_seq'),
+                organization integer,
+                fcs VARCHAR (255),
+                short_fcs VARCHAR (255),
+                position integer,
+                citizenship integer,
+                birth_year VARCHAR (255),
+                path VARCHAR (255),
+                city integer,
+                treatmentplace VARCHAR (255),
+                hospital integer,
+                patient_status VARCHAR (255),
+                contacted_number integer,
+                country integer,
+                status VARCHAR (255),
+                register_at VARCHAR (255),
+                unregister_at VARCHAR (255),
+                first_test_at VARCHAR (255),
+                death_at VARCHAR (255),
+                comment VARCHAR (255),
+                disease_number VARCHAR (255),
+                is_fully_vaccinated VARCHAR (255),
+                fully_vaccinated_at VARCHAR (255),
+                is_first_component_vaccinated VARCHAR (255),
+                first_vaccine_at VARCHAR (255),
+            CONSTRAINT registry_pkey PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
