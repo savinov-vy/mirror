@@ -1,13 +1,15 @@
 package savinov.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import savinov.entities.Registry;
+
+import java.time.LocalDateTime;
 
 
 @Data
@@ -61,17 +63,21 @@ public class RegistryDto {
     @JsonProperty("СтатусУчётаValue")
     private String status;
 
+    @DateTimeFormat
     @JsonProperty("ДатаПостановкиНаУчёт")
-    private String registerDate;
+    private LocalDateTime registerDate;
 
+    @DateTimeFormat
     @JsonProperty("ДатаСнятияСУчёта")
-    private String unregisterDate;
+    private LocalDateTime unregisterDate;
 
     @JsonProperty("ДатаПолученияПоложительногоТеста")
-    private String firstTestDate;
+    @DateTimeFormat
+    private LocalDateTime firstTestDate;
 
+    @DateTimeFormat
     @JsonProperty("ДатаСмерти")
-    private String deathDate;
+    private LocalDateTime deathDate;
 
     @JsonProperty("Комментарий")
     private String comment;
@@ -83,13 +89,14 @@ public class RegistryDto {
     private String isFullyVaccinated;
 
     @JsonProperty("ДатаВакцинированияПолностью")
-    private String fullyVaccinatedDate;
+    private LocalDateTime fullyVaccinatedDate;
 
     @JsonProperty("ВакцинированПервымКомпонентомValue")
     private String isFirstComponentVaccinated;
 
+    @DateTimeFormat
     @JsonProperty("ДатаВакцинированияПервымКомпонентом")
-    private String firstVaccineDate;
+    private LocalDateTime firstVaccineDate;
 
     public static RegistryDto of(Registry registry) {
         return RegistryDto.builder()

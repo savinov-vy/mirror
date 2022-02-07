@@ -71,16 +71,16 @@ public class Registry {
     private String status;
 
     @Column(name = "register_at")
-    private String registerDate;
+    private LocalDateTime registerDate;
 
     @Column(name = "unregister_at")
-    private String unregisterDate;
+    private LocalDateTime unregisterDate;
 
     @Column(name = "first_test_at")
-    private String firstTestDate;
+    private LocalDateTime firstTestDate;
 
     @Column(name = "death_at")
-    private String deathDate;
+    private LocalDateTime deathDate;
 
     @Column(name = "comment")
     private String comment;
@@ -92,13 +92,13 @@ public class Registry {
     private String isFullyVaccinated;
 
     @Column(name = "fully_vaccinated_at")
-    private String fullyVaccinatedDate;
+    private LocalDateTime fullyVaccinatedDate;
 
     @Column(name = "is_first_component_vaccinated")
     private String isFirstComponentVaccinated;
 
     @Column(name = "first_vaccine_at")
-    private String firstVaccineDate;
+    private LocalDateTime firstVaccineDate;
 
 
     public static Registry of(RegistryDto registryDto) {

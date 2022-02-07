@@ -29,16 +29,16 @@
                 contacted_number integer,
                 country integer,
                 status VARCHAR (255),
-                register_at VARCHAR (255),
-                unregister_at VARCHAR (255),
-                first_test_at VARCHAR (255),
-                death_at VARCHAR (255),
+                register_at timestamp (255),
+                unregister_at timestamp (255),
+                first_test_at timestamp (255),
+                death_at timestamp (255),
                 comment VARCHAR (255),
                 disease_number VARCHAR (255),
                 is_fully_vaccinated VARCHAR (255),
-                fully_vaccinated_at VARCHAR (255),
+                fully_vaccinated_at timestamp (255),
                 is_first_component_vaccinated VARCHAR (255),
-                first_vaccine_at VARCHAR (255),
+                first_vaccine_at timestamp (255),
             CONSTRAINT registry_pkey PRIMARY KEY (id)
             );
         </sql>

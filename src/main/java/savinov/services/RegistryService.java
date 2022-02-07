@@ -88,9 +88,10 @@ public class RegistryService {
         while (diseaseMatcher.find()) {
             diseaseNumber = diseaseMatcher.group().substring(diseaseMatcher.group().indexOf("'") + 1);
         }
-        return registryRepository.findRegistryByFilter(shortFcs, birthYear, diseaseNumber).stream()
+        List<RegistryDto> collect = registryRepository.findRegistryByFilter(shortFcs, birthYear, diseaseNumber).stream()
                 .map(this::buildToRegistryDto)
                 .collect(Collectors.toList());
+        return collect;
     }
 
 
