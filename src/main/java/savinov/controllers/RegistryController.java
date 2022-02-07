@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import savinov.dto.RegistryDto;
 import savinov.services.RegistryService;
@@ -25,8 +24,7 @@ public class RegistryController {
     private RegistryService registryService;
 
     @GetMapping("/Реестр")
-    public @ResponseBody
-    List<RegistryDto> getRegistry(@RequestParam(required = false) String folder,
+    public List<RegistryDto> getRegistry(@RequestParam(required = false) String folder,
                                   @RequestParam(required = false) String filter) {
         if (nonNull(filter)) {
             return registryService.findRegistryByFilter(filter);
@@ -36,15 +34,13 @@ public class RegistryController {
     }
 
     @PostMapping(value = "/Реестр")
-    public @ResponseBody
-    RegistryDto postRegistry(@RequestBody String registryDto) {
+    public RegistryDto postRegistry(@RequestBody String registryDto) {
         RegistryDto saved = registryService.mapToRegistryAndSave(registryDto);
         return saved;
     }
 
     @PostMapping(value = "/Реестр/{id}")
-    public @ResponseBody
-    RegistryDto putRegistry(@RequestBody String registryDto, @PathVariable Integer id) {
+    public RegistryDto putRegistry(@RequestBody String registryDto, @PathVariable Integer id) {
         RegistryDto saved = registryService.mapToRegistryAndUpdateById(registryDto, id);
         return saved;
     }

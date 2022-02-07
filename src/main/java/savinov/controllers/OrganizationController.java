@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import savinov.dto.OrganizationDto;
 import savinov.services.OrganizationService;
@@ -23,18 +22,18 @@ public class OrganizationController {
     private OrganizationService organizationService;
 
     @GetMapping("/Организации")
-    public @ResponseBody List<OrganizationDto> getOrganization() {
+    public List<OrganizationDto> getOrganization() {
         return organizationService.getAllOrganizations();
     }
 
     @PostMapping(value = "/Организации")
-    public @ResponseBody OrganizationDto postOrganization(@RequestBody String organizationDto) throws JsonProcessingException {
+    public OrganizationDto postOrganization(@RequestBody String organizationDto) throws JsonProcessingException {
         OrganizationDto saved = organizationService.mapToOrganizationAndSave(organizationDto);
         return saved;
     }
 
     @PostMapping(value = "/Организации/{id}")
-    public @ResponseBody OrganizationDto putOrganization(@RequestBody String organizationDto, @PathVariable Integer id) throws JsonProcessingException {
+    public OrganizationDto putOrganization(@RequestBody String organizationDto, @PathVariable Integer id) throws JsonProcessingException {
         OrganizationDto saved = organizationService.mapToOrganizationAndUpdateById(organizationDto, id);
         return saved;
     }

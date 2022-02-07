@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import savinov.dto.CitizenshipDto;
 import savinov.services.CitizenshipService;
@@ -28,13 +27,13 @@ public class CitizenshipController {
     }
 
     @PostMapping(value = "/Гражданства")
-    public @ResponseBody CitizenshipDto postCitizenship(@RequestBody String citizenshipDto) throws JsonProcessingException {
+    public CitizenshipDto postCitizenship(@RequestBody String citizenshipDto) throws JsonProcessingException {
         CitizenshipDto saved = citizenshipService.mapToCitizenshipAndSave(citizenshipDto);
         return saved;
     }
 
     @PostMapping(value = "/Гражданства/{id}")
-    public @ResponseBody CitizenshipDto putCitizenship(@RequestBody String citizenshipDto, @PathVariable Integer id) throws JsonProcessingException {
+    public CitizenshipDto putCitizenship(@RequestBody String citizenshipDto, @PathVariable Integer id) throws JsonProcessingException {
         CitizenshipDto saved = citizenshipService.mapToCitizenshipAndUpdateById(citizenshipDto, id);
         return saved;
     }

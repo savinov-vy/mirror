@@ -23,18 +23,18 @@ public class PositionController {
     private PositionService positionService;
 
     @GetMapping("/Должности")
-    public @ResponseBody List<PositionDto> getPosition() {
+    public List<PositionDto> getPosition() {
         return positionService.getAllPositions();
     }
 
     @PostMapping(value = "/Должности")
-    public @ResponseBody PositionDto postPosition(@RequestBody String positionDto) throws JsonProcessingException {
+    public PositionDto postPosition(@RequestBody String positionDto) throws JsonProcessingException {
         PositionDto saved = positionService.mapToPositionAndSave(positionDto);
         return saved;
     }
 
     @PostMapping(value = "/Должности/{id}")
-    public @ResponseBody PositionDto putPosition(@RequestBody String positionDto, @PathVariable Integer id) throws JsonProcessingException {
+    public PositionDto putPosition(@RequestBody String positionDto, @PathVariable Integer id) throws JsonProcessingException {
         PositionDto saved = positionService.mapToPositionAndUpdateById(positionDto, id);
         return saved;
     }

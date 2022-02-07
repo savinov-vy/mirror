@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import savinov.dto.HospitalDto;
 import savinov.services.HospitalService;
@@ -23,18 +22,18 @@ public class HospitalController {
     private HospitalService hospitalService;
 
     @GetMapping("/Стационары")
-    public @ResponseBody List<HospitalDto> getHospital() {
+    public List<HospitalDto> getHospital() {
         return hospitalService.getAllHospitals();
     }
 
     @PostMapping(value = "/Стационары")
-    public @ResponseBody HospitalDto postHospital(@RequestBody String hospitalDto) throws JsonProcessingException {
+    public HospitalDto postHospital(@RequestBody String hospitalDto) throws JsonProcessingException {
         HospitalDto saved = hospitalService.mapToHospitalAndSave(hospitalDto);
         return saved;
     }
 
     @PostMapping(value = "/Стационары/{id}")
-    public @ResponseBody HospitalDto putHospital(@RequestBody String hospitalDto, @PathVariable Integer id) throws JsonProcessingException {
+    public HospitalDto putHospital(@RequestBody String hospitalDto, @PathVariable Integer id) throws JsonProcessingException {
         HospitalDto saved = hospitalService.mapToHospitalAndUpdateById(hospitalDto, id);
         return saved;
     }

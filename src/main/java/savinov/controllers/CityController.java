@@ -23,18 +23,18 @@ public class CityController {
     private CityService cityService;
 
     @GetMapping("/Города")
-    public @ResponseBody List<CityDto> getCity() {
+    public List<CityDto> getCity() {
         return cityService.getAllCountries();
     }
 
     @PostMapping(value = "/Города")
-    public @ResponseBody CityDto postCity(@RequestBody String cityDto) throws JsonProcessingException {
+    public CityDto postCity(@RequestBody String cityDto) throws JsonProcessingException {
         CityDto saved = cityService.mapToCityAndSave(cityDto);
         return saved;
     }
 
     @PostMapping(value = "/Города/{id}")
-    public @ResponseBody CityDto putCity(@RequestBody String cityDto, @PathVariable Integer id) throws JsonProcessingException {
+    public CityDto putCity(@RequestBody String cityDto, @PathVariable Integer id) throws JsonProcessingException {
         CityDto saved = cityService.mapToCityAndUpdateById(cityDto, id);
         return saved;
     }

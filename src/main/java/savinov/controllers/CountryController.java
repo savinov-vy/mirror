@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import savinov.dto.CountryDto;
 import savinov.services.CountryService;
@@ -23,18 +22,18 @@ public class CountryController {
     private CountryService countryService;
 
     @GetMapping("/Страны")
-    public @ResponseBody List<CountryDto> getCountry() {
+    public List<CountryDto> getCountry() {
         return countryService.getAllCountries();
     }
 
     @PostMapping(value = "/Страны")
-    public @ResponseBody CountryDto postCountry(@RequestBody String countryDto) throws JsonProcessingException {
+    public CountryDto postCountry(@RequestBody String countryDto) throws JsonProcessingException {
         CountryDto saved = countryService.mapToCountryAndSave(countryDto);
         return saved;
     }
 
     @PostMapping(value = "/Страны/{id}")
-    public @ResponseBody CountryDto putCountry(@RequestBody String countryDto, @PathVariable Integer id) throws JsonProcessingException {
+    public CountryDto putCountry(@RequestBody String countryDto, @PathVariable Integer id) throws JsonProcessingException {
         CountryDto saved = countryService.mapToCountryAndUpdateById(countryDto, id);
         return saved;
     }
