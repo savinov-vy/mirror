@@ -30,7 +30,7 @@ public class RegistryService {
     @Transactional
     public RegistryDto mapToRegistryAndUpdateById(String registryFields, Integer id) {
         RegistryDto registryDto = PropsRegistry.getRegistryDto(registryFields);
-        Registry registry = registryRepository.getOne(id);
+        Registry registry = registryRepository.findById(id).get();
         registry.setId(registryDto.getId());
         registry.setOrganization(registryDto.getOrganization());
         registry.setFcs(registryDto.getFcs());
